@@ -38,8 +38,7 @@ public class TondeuseExecutor {
      * */
     public static List<String> readAndExecute(String filePath)throws IOException, InvalidInstructionsException {
         List<String> rows = read(filePath);
-        List<String> result = TondeuseTask.execute(rows);
-        return result;
+        return new TondeuseTask(rows).getResult();
     }
     /**
      * Read file to String
