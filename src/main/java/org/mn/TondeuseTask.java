@@ -42,39 +42,4 @@ public class TondeuseTask {
         }
     }
 
-    /**
-     * Read file to String
-     * @param  filePath the file path to the instructions file
-     * @return      the content of the file
-     * */
-    public static List<String> read(String filePath) throws IOException {
-        try {
-            URL url = Tondeuse.class.getResource(filePath);
-            if (url==null)
-                throw new IOException();
-            return Files.readAllLines(Paths.get( url.toURI() ));
-        } catch (URISyntaxException e) {
-            throw new IOException(e);
-        }
-    }
-    /**
-     * Read file to String
-     * @param  filePath the file path to the instructions file
-     * @return      the position of every Tondeuse at the end
-     * */
-    public static List<String> readAndExecute(String filePath)throws IOException, InvalidInstructionsException {
-        List<String> rows = read(filePath);
-        List<String> result = execute(rows);
-        return result;
-    }
-    /**
-     * Read file to String
-     * @param  filePath the file path to the instructions file
-     * @return      the position of every Tondeuse at the end
-     * */
-    public static void readExecuteAndPrint(String filePath)throws IOException, InvalidInstructionsException {
-        List<String> result = readAndExecute(filePath);
-        for (String r : result)
-            System.out.println(r);
-    }
 }
