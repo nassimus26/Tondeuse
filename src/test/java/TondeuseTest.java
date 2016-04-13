@@ -137,5 +137,44 @@ public class TondeuseTest {
             Assert.fail("Invalid file instructions");
         }
     }
-
+    @Test
+    public void testMoveEastMaxBorder(){
+        try {
+            TondeuseTask task = new TondeuseTask(new ArrayList<>(Arrays.asList(new String[]{"5 5", "5 1 E", "A"})));
+            Assert.assertArrayEquals(new String[]{"5 1 E"}, task.getResult().toArray());
+        } catch (InvalidInstructionsException e) {
+            e.printStackTrace();
+            Assert.fail("Invalid file instructions");
+        }
+    }
+    @Test
+    public void testMoveWestMaxBorder(){
+        try {
+            TondeuseTask task = new TondeuseTask(new ArrayList<>(Arrays.asList(new String[]{"5 5", "0 1 W", "A"})));
+            Assert.assertArrayEquals(new String[]{"0 1 W"}, task.getResult().toArray());
+        } catch (InvalidInstructionsException e) {
+            e.printStackTrace();
+            Assert.fail("Invalid file instructions");
+        }
+    }
+    @Test
+    public void testMoveNorthMaxBorder(){
+        try {
+            TondeuseTask task = new TondeuseTask(new ArrayList<>(Arrays.asList(new String[]{"5 5", "0 5 N", "A"})));
+            Assert.assertArrayEquals(new String[]{"0 5 N"}, task.getResult().toArray());
+        } catch (InvalidInstructionsException e) {
+            e.printStackTrace();
+            Assert.fail("Invalid file instructions");
+        }
+    }
+    @Test
+    public void testMoveSudMaxBorder(){
+        try {
+            TondeuseTask task = new TondeuseTask(new ArrayList<>(Arrays.asList(new String[]{"5 5", "0 0 S", "A"})));
+            Assert.assertArrayEquals(new String[]{"0 0 S"}, task.getResult().toArray());
+        } catch (InvalidInstructionsException e) {
+            e.printStackTrace();
+            Assert.fail("Invalid file instructions");
+        }
+    }
 }
