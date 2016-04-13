@@ -32,9 +32,8 @@ public class TondeuseTask {
             for (int i=1;i<rows.size();i+=2) {
                 Tondeuse tondeuse = new Tondeuse(gridSizeX, gridSizeY, rows.get(i));
                 char [] intructions = rows.get(i+1).toCharArray();
-                for (char c :intructions ) {
+                for (char c :intructions)
                     tondeuse.move(c);
-                }
                 result.add(tondeuse.getPosition());
             }
             return result;
